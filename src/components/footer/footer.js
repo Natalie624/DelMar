@@ -1,4 +1,6 @@
 import React from "react";
+import { StaticQuery, graphql } from "gatsby"
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { Row, Col } from "react-bootstrap"
 import Logo from "./logo"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,6 +8,33 @@ import { faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import FooterStyle from "./footer.module.css";
 
 const Footer = () => (
+    <StaticQuery query={graphql`
+        query Footer {
+            allContentfulDelMarFooter{
+                nodes{
+                  contactHeadline{
+                    contactHeadline
+                  }
+                  contactInfoParagraph{
+                    json
+                  }
+                  hoursHeadline{
+                    hoursHeadline
+                  }
+                  hoursInfoParagraph{
+                    json
+                  }
+                  locationHeadline{
+                    locationHeadline
+                  }
+                  locationInformationParagraph{
+                    json
+                  }
+                }
+              }
+            }
+        `}
+    render = {data => (
     <section className={FooterStyle.footerSection}>
         <Row>
             <Col xs={12} className={FooterStyle.identityCol}>
@@ -15,19 +44,16 @@ const Footer = () => (
         </Row>
         <Row className={FooterStyle.footerContentRow}>
             <Col lg={3} md={6} sm={6} xs={12}>
-                <h4 className={FooterStyle.sectionTitle}>Contact Us</h4>
-                <p>Phone: 123-456-7890</p>
-                <p>Email: info@delmarrestaurant.com</p>
+                <h4 className={FooterStyle.sectionTitle}>{data.allContentfulDelMarFooter.nodes[0].contactHeadline.contactHeadline}</h4>
+                    {documentToReactComponents(data.allContentfulDelMarFooter.nodes[0].contactInfoParagraph.json)}
             </Col>
             <Col lg={3} md={6} sm={6} xs={12}>
-                <h4 className={FooterStyle.sectionTitle}>Restaurant Hours</h4>
-                <p>Mon - Sat: 8 am to 12 am</p>
-                <p>Sun: 10 am to 10 pm</p>
+                <h4 className={FooterStyle.sectionTitle}>{data.allContentfulDelMarFooter.nodes[0].hoursHeadline.hoursHeadline}</h4>
+                  {documentToReactComponents(data.allContentfulDelMarFooter.nodes[0].hoursInfoParagraph.json)}
             </Col>
             <Col lg={3} md={6} sm={6} xs={12} className={FooterStyle.mobileCol}>
-                <h4 className={FooterStyle.sectionTitle}>Our Location</h4>
-                <p>123 Restaurant Ave. NE</p>
-                <p>Seattle, WA 98107</p>
+                <h4 className={FooterStyle.sectionTitle}>{data.allContentfulDelMarFooter.nodes[0].locationHeadline.locationHeadline}</h4>
+                {documentToReactComponents(data.allContentfulDelMarFooter.nodes[0].locationInformationParagraph.json)}
             </Col>
             <Col lg={3} md={6} sm={6} xs={12} className={FooterStyle.mobileCol} id={FooterStyle.centerIcons}>
                 <h4 className={FooterStyle.sectionTitle}>Follow Us</h4>
@@ -45,6 +71,8 @@ const Footer = () => (
             </Col>
         </Row>
     </section>
+    )}
+    />
 )
 
 export default Footer
