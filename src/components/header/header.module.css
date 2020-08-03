@@ -1,0 +1,95 @@
+/* Stylesheet for the Header Navigation component. */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    z-index: 1;
+}
+
+.logo {
+    width: 50px;
+    margin-left: 20px;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style-type: none;
+    width: 100%;
+    padding-left: 74%;
+}
+
+.nav-item, .nav-item-social {
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.nav-links {
+    color: #ffffff;
+    transition: .5s linear;
+}
+
+.nav-links:hover {
+    color: #edb752;
+    text-decoration: none;
+}
+
+.nav-icons {
+    font-size: 25px;
+}
+
+@media (min-width: 1280px) and (max-width: 1365px) {
+    .navbar-nav {
+        padding-left: 72%;
+    }
+}
+
+/* iPad Pro Portrait View */
+@media only screen 
+and (min-device-width : 1024px) 
+and (max-device-width : 1024px) 
+and (min-device-height : 1366px) 
+and (max-device-height : 1366px) 
+and (min-width: 1024px) 
+and (max-width: 1024px)
+and (orientation: portrait) {
+    .navbar-nav {
+        padding-left: 65%;
+    }
+}
+
+@media (max-width: 1199px) {
+    .navbar-nav {
+        padding-left: 65%;
+    }
+}
+
+@media (max-width: 991px) {
+    .navbar-nav {
+        padding-left: 54%;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-nav {
+        padding-left: 5%;
+    }
+    .nav-item, .nav-item-social {
+        padding-top: 20px;
+    }
+}
+
+/* Galaxy Tab S6 Portrait View */
+@media only screen 
+and (min-device-width : 712px) 
+and (max-device-width : 712px) 
+and (min-device-height : 1138px) 
+and (max-device-height : 1138px) 
+and (min-width: 712px) 
+and (max-width: 712px)
+and (orientation: portrait) {
+    .navbar-nav {
+        padding-left: 49%;
+    }
+}

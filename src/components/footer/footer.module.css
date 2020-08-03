@@ -1,0 +1,121 @@
+@media screen and (max-width: 850px) and (orientation: landscape) {
+    .footer-section {
+        display: none !important;
+    }
+}
+
+.footer-section {
+    background-color: #1267ad;
+    padding: 30px 50px 0;
+    margin-top: 50px;
+}
+
+.identity-col {
+    display: flex;
+}
+
+.logo {
+    width: 60px;
+}
+
+.footer-title {
+    color: #edb752;
+    padding-top: 15px;
+    padding-left: 10px;
+}
+
+.footer-content-row {
+    padding: 30px 0;
+}
+
+.footer-content-row div p {
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.section-title {
+    color: #edb752;
+}
+
+.footer-icons {
+    color: #ffffff;
+    font-size: 50px;
+    margin-right: 20px;
+}
+
+.copyright {
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.copyright a {
+    color: #edb752;
+    text-decoration: underline;
+}
+
+.copyright a:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 1199px) {
+    .footer-content-row div p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 991px) {
+    .mobile-col {
+        margin-top: 30px;
+    }
+    .footer-content-row div p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 767px) {
+    .footer-section {
+        padding: 30px 15px 0;
+    }
+    .identity-col {
+        display: block;
+    }
+    .logo {
+        display: block;
+        margin: auto;
+    }
+    .footer-title, 
+    .section-title, 
+    .footer-content-row div p,
+    #center-icons, 
+    .copyright {
+        text-align: center;
+    }
+}
+
+/* Galaxy Tab S6 Portrait View */
+@media only screen 
+and (min-device-width : 712px) 
+and (max-device-width : 712px) 
+and (min-device-height : 1138px) 
+and (max-device-height : 1138px) 
+and (min-width: 712px) 
+and (max-width: 712px)
+and (orientation: portrait) {
+    .footer-section {
+        padding: 30px 50px 0;
+    }
+    .identity-col {
+        display: flex;
+    }
+    .logo {
+        display: block;
+        margin: 0;
+    }
+    .footer-title, 
+    .section-title, 
+    .footer-content-row div p,
+    #center-icons, 
+    .copyright {
+        text-align: left;
+    }
+}

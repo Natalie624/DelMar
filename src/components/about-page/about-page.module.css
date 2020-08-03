@@ -1,0 +1,63 @@
+@media screen and (max-width: 850px) and (orientation: landscape) {
+    .about-section, 
+    .chef-section {
+        display: none !important;
+    }
+}
+
+.about-section,
+.chef-section {
+    padding: 50px 50px 0;
+}
+
+.section-title {
+    color: #1267ad;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.description {
+    padding: 0 15%;
+    text-align: justify;
+}
+
+.chef-section div {
+    width: 300px;
+    display: block;
+    margin: 30px auto;
+}
+
+@media (max-width: 1199px) {
+    .description {
+        padding: 0 10%;
+    }
+}
+
+@media (max-width: 991px) {
+    .description {
+        padding: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .about-section,
+    .chef-section {
+        padding: 50px 15px 0;
+}
+}
+
+/* Galaxy Tab S6 Portrait View */
+@media only screen 
+and (min-device-width : 712px) 
+and (max-device-width : 712px) 
+and (min-device-height : 1138px) 
+and (max-device-height : 1138px) 
+and (min-width: 712px) 
+and (max-width: 712px)
+and (orientation: portrait) {
+    .about-section,
+    .chef-section {
+        padding: 50px 50px 0;
+}
+}
