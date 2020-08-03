@@ -4,7 +4,7 @@ import Close from "./close-img"
 
 const ReservationModal = () => (
     /*! Modal */
-    <div className="modal fade" data-backdrop="false" id="reservationBtn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div className="modal fade" data-backdrop="false" id="reservationBtn" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered" id={ReservationModalStyle.modalDialog} role="document">
             <div className="modal-content" id={ReservationModalStyle.modalContent}>
                 <div className="modal-body">
