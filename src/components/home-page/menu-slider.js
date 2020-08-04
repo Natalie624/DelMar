@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
 import HomePageStyle from "./home-page.module.css"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -11,6 +11,33 @@ import MenuSliderFour from "./slider-4-img"
 import MenuSliderFive from "./slider-5-img"
 
 const MenuSlider = () => (
+    <StaticQuery query={graphql` 
+        query MenuSliderLabels {
+            allContentfulDelMarHomepage{
+                nodes{
+                  homepageMenuCarousel {
+                    carouselImage1{
+                      name
+                    }
+                    carouselImage2
+                    {
+                      name
+                    }
+                    carouselImage3{
+                      name
+                    }
+                    carouselImage4{
+                      name
+                    }
+                    carouselImage5{
+                      name
+                    }
+                  }
+                }
+              }
+            }
+        `}
+    render = {data => (
     <div className={HomePageStyle.menuSliderDiv} id="menu-slider-div">
         <Slider
             dots={true}
@@ -23,35 +50,37 @@ const MenuSlider = () => (
                 <div>
                     <Link className={HomePageStyle.menuSliderLink} to="/menu/#appetizers">
                         <MenuSliderOne />
-                        <p>Appetizers</p>
+                        <p>{data.allContentfulDelMarHomepage.nodes[0].homepageMenuCarousel.carouselImage1.name}</p>
                     </Link>
                 </div>
                 <div>
                     <Link className={HomePageStyle.menuSliderLink} to="/menu/#salads">
                         <MenuSliderTwo />
-                        <p>Salads</p>
+                        <p>{data.allContentfulDelMarHomepage.nodes[0].homepageMenuCarousel.carouselImage2.name}</p>
                     </Link>
                 </div>
                 <div>
                     <Link className={HomePageStyle.menuSliderLink} to="/menu/#entrees">
                         <MenuSliderThree />
-                        <p>Entrees</p>
+                        <p>{data.allContentfulDelMarHomepage.nodes[0].homepageMenuCarousel.carouselImage3.name}</p>
                     </Link>
                 </div>
                 <div>
                     <Link className={HomePageStyle.menuSliderLink} to="/menu/#desserts">
                         <MenuSliderFour />
-                        <p>Desserts</p>
+                        <p>{data.allContentfulDelMarHomepage.nodes[0].homepageMenuCarousel.carouselImage4.name}</p>
                     </Link>
                 </div>
                 <div>
                     <Link className={HomePageStyle.menuSliderLink} to="/menu/#cocktails">
                         <MenuSliderFive />
-                        <p>Cocktails</p>
+                        <p>{data.allContentfulDelMarHomepage.nodes[0].homepageMenuCarousel.carouselImage5.name}</p>
                     </Link>
                 </div>
         </Slider>
     </div>
+    )}
+    />
 )
 
 export default MenuSlider
