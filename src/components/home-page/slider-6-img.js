@@ -5,17 +5,23 @@ import Img from "gatsby-image"
 const AboutSliderFive = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "slider-6.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 500) {
-            ...GatsbyImageSharpFluid
+      allContentfulDelMarHomepage{
+        nodes{
+          homepageAboutCarousel{
+            carouselImage1{
+              image{
+                fluid(maxWidth: 500) {
+                  ...GatsbyContentfulFluid
+                }
+              }
+            }
           }
         }
       }
     }
   `)
 
-  return <Img alt="slider image" fluid={data.placeholderImage.childImageSharp.fluid} />
+  return <Img alt="slider image" fluid={data.allContentfulDelMarHomepage.nodes[0].homepageAboutCarousel.carouselImage1.image.fluid} />
 }
 
 export default AboutSliderFive
