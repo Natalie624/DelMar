@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import Hero from "../components/menu-page/hero"
 import Appetizers from "../components/menu-page/appetizers"
 import Salads from "../components/menu-page/salads"
-import Entrees from "../components/menu-page/entress"
+import Entrees from "../components/menu-page/entrees"
 import Desserts from "../components/menu-page/desserts"
 import Cocktails from "../components/menu-page/cocktails"
 

@@ -1,18 +1,18 @@
-import React from "react";
+import React from "react"
 import { StaticQuery, graphql } from "gatsby";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import MenuPagerStyle from "./menu-page.module.css";
-import MenuImg from "../home-page/slider-2-img";
+import MenuPagerStyle from "./menu-page.module.css"
+import MenuImg from "../home-page/slider-3-img"
 
-const Salads = () => (
+const Entrees = () => (
     <StaticQuery query={graphql`
-        query SaladMenuitems{
+        query EntreeMenuItems{
             allContentfulDelMarMenuPage{
                 nodes{
-                 saladMenuItems{
+                 entreeMenuItems{
                   menuSectionTitle
                 }
-                  saladMenuItems{
+                  entreeMenuItems{
                     menuItems{
                       json
                     }
@@ -21,13 +21,13 @@ const Salads = () => (
               }
             }
         `}
-    render = {data => (
-    <section className={MenuPagerStyle.menuSection} id="salads">
+    render = {data=> (
+    <section className={MenuPagerStyle.menuSection} id="entrees">
     <MenuImg />
         <div className={MenuPagerStyle.menuBox}>
-            <h3 className={MenuPagerStyle.boxTitle}>{data.allContentfulDelMarMenuPage.nodes[0].saladMenuItems.menuSectionTitle}</h3>
+            <h3 className={MenuPagerStyle.boxTitle}>{data.allContentfulDelMarMenuPage.nodes[0].entreeMenuItems.menuSectionTitle}</h3>
             <div className={MenuPagerStyle.menuItems}>
-                {documentToReactComponents(data.allContentfulDelMarMenuPage.nodes[0].saladMenuItems.menuItems.json)}
+                {documentToReactComponents(data.allContentfulDelMarMenuPage.nodes[0].entreeMenuItems.menuItems.json)}
             </div>
         </div>
     </section>
@@ -35,4 +35,4 @@ const Salads = () => (
     />
 );
 
-export default Salads
+export default Entrees

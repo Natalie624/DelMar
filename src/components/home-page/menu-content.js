@@ -27,6 +27,6 @@ const MenuContent = () => (
     )}
     />
     
-)
+);
 
 export default MenuContent
