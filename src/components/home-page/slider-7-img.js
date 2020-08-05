@@ -2,13 +2,13 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-const AboutSliderFive = () => {
+const AboutSliderFour = () => {
   const data = useStaticQuery(graphql`
     query {
       allContentfulDelMarHomepage{
         nodes{
           homepageAboutCarousel{
-            carouselImage1{
+            carouselImage3{
               image{
                 fluid(maxWidth: 500) {
                   ...GatsbyContentfulFluid
@@ -21,7 +21,7 @@ const AboutSliderFive = () => {
     }
   `)
 
-  return <Img alt="slider image" fluid={data.allContentfulDelMarHomepage.nodes[0].homepageAboutCarousel.carouselImage1.image.fluid} />
+  return <Img alt="slider image" fluid={data.allContentfulDelMarHomepage.nodes[0].homepageAboutCarousel.carouselImage3.image.fluid} />
 }
 
-export default AboutSliderFive
+export default AboutSliderFour

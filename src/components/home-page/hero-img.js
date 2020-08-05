@@ -5,17 +5,21 @@ import Img from "gatsby-image"
 const HeroImg = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "hero-1.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 2000) {
-            ...GatsbyImageSharpFluid
+      allContentfulDelMarHomepage{
+        nodes{
+          heroContentInfo{
+            heroImage{
+              fluid (maxWidth: 2000) {
+              ...GatsbyContentfulFluid
+              }
+            }
           }
         }
       }
     }
   `)
 
-  return <Img className="hero-img" alt="hero-img" fluid={data.placeholderImage.childImageSharp.fluid} />
+  return <Img className="hero-img" alt="hero-img" fluid={data.allContentfulDelMarHomepage.nodes[0].heroContentInfo.heroImage.fluid} />
 }
 
 export default HeroImg
