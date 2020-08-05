@@ -4,10 +4,15 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import AboutSliderOne from "./slider-1-img"
-import AboutSliderTwo from "./slider-2-img"
+import AboutSliderTwo from "./slider-7-img"
 import AboutSliderThree from "./slider-3-img"
-import AboutSliderFour from "./slider-4-img"
+import AboutSliderFour from "./slider-5-img"
 import AboutSliderFive from "./slider-6-img"
+import SliderOneCaption from "./about-slider-captions/slider-one-caption"
+import SliderTwoCaption from "./about-slider-captions/slider-two-caption"
+import SliderThreeCaption from "./about-slider-captions/slider-three-caption"
+import SliderFourCaption from "./about-slider-captions/slider-four-caption"
+import SliderFiveCaption from "./about-slider-captions/slider-five-caption"
 
 export default class AboutSlider extends Component {
     render() {
@@ -43,31 +48,41 @@ export default class AboutSlider extends Component {
                         <div>
                             <div className={HomePageStyle.aboutSliderItem}>
                                 <AboutSliderOne />
-                                <p>Steamed Prawns</p>
+                                <p>
+                                    <SliderOneCaption />
+                                </p>
                             </div>
                         </div>
                         <div>
                             <div className={HomePageStyle.aboutSliderItem}>
                                 <AboutSliderTwo />
-                                <p>Summer Salad</p>
+                                <p>
+                                    <SliderTwoCaption />
+                                </p>
                             </div>
                         </div>
                         <div>
                             <div className={HomePageStyle.aboutSliderItem}>
                                 <AboutSliderThree />
-                                <p>Grilled Salmon</p>
+                                <p> 
+                                    <SliderThreeCaption /> 
+                                </p>
                             </div>
                         </div>
                         <div>
                             <div className={HomePageStyle.aboutSliderItem}>
                                 <AboutSliderFour />
-                                <p>Fruit Yogurt</p>
+                                <p>
+                                    <SliderFourCaption />
+                                </p>
                             </div>
                         </div>
                         <div>
                             <div className={HomePageStyle.aboutSliderItem}>
                                 <AboutSliderFive />
-                                <p>Beach Front Deck Dining</p>
+                                <p>
+                                    <SliderFiveCaption />
+                                </p>
                             </div>
                         </div>
                 </Slider>
@@ -75,3 +90,6 @@ export default class AboutSlider extends Component {
         );
     }
 }
+
+
+
