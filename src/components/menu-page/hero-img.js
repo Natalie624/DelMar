@@ -10,7 +10,7 @@ const HeroImg = () => {
           menuHeroContent{
             heroImage{
               fluid (maxWidth: 2000) {
-              ...GatsbyContentfulFluid
+                ...GatsbyContentfulFluid
               }
             }
           }
