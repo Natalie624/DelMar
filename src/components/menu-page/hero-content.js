@@ -1,11 +1,31 @@
-import React from "react"
+import React from "react";
+import { StaticQuery, graphql } from "gatsby";
 
 const HeroContent = () => (
-    <div className="hero-content">
-        <h1 className="hero-title"><strong>Menu</strong></h1>
-        <p className="hero-description">Our seafood is sustainably sourced and caught fresh daily by local fishermen. We take pride in our creations! Bringing you the best of the Pacific daily!</p>
-        <button type="button" className="hero-btn" data-toggle="modal" data-target="#reservationBtn" data-keyboard="false">Reserve a Table</button>
-    </div>
+    <StaticQuery query={graphql`
+        query MenuHeroContent{
+            allContentfulDelMarMenuPage{
+                nodes{
+                  menuHeroContent{
+                    headline{
+                      headline
+                    }
+                    heroParagraph{
+                      heroParagraph
+                    }
+                  }
+                }
+              }
+            }
+        `}
+        render ={data => (
+        <div className="hero-content">
+            <h1 className="hero-title"><strong>{data.allContentfulDelMarMenuPage.nodes[0].menuHeroContent.headline.headline}</strong></h1>
+            <p className="hero-description">{data.allContentfulDelMarMenuPage.nodes[0].menuHeroContent.heroParagraph.heroParagraph}</p>
+            <button type="button" className="hero-btn" data-toggle="modal" data-target="#reservationBtn" data-keyboard="false">Reserve a Table</button>
+        </div>
+        )}
+    />
 )
 
 export default HeroContent

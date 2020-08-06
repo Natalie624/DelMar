@@ -1,24 +1,38 @@
-import React from "react"
-import MenuPagerStyle from "./menu-page.module.css"
-import MenuImg from "../home-page/slider-4-img"
+import React from "react";
+import { StaticQuery, graphql } from "gatsby";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import MenuPagerStyle from "./menu-page.module.css";
+import MenuImg from "../home-page/slider-4-img";
 
 const Desserts = () => (
+    <StaticQuery query={graphql`
+        query DessertItems{
+            allContentfulDelMarMenuPage{
+                nodes{
+                 dessertMenuItems{
+                  menuSectionTitle
+                }
+                  dessertMenuItems{
+                    menuItems{
+                      json
+                    }
+                  }
+                }
+              }
+            }
+        `}
+    render = {data => (
     <section className={MenuPagerStyle.menuSection} id="desserts">
     <MenuImg />
         <div className={MenuPagerStyle.menuBox}>
-            <h3 className={MenuPagerStyle.boxTitle}>Desserts</h3>
+            <h3 className={MenuPagerStyle.boxTitle}>{data.allContentfulDelMarMenuPage.nodes[0].dessertMenuItems.menuSectionTitle}</h3>
             <div className={MenuPagerStyle.menuItems}>
-                <p><strong>Brownies &amp; Cream</strong> | $9.00</p>
-                <p>Baked soft brownie served with rich creamy whipped topping.</p>
-
-                <p><strong>Tiramisu</strong> | $11.00</p>
-                <p>Traditional Italian specialty with layers of marscapone cheese, coffee, &amp; savioardi biscuits topped with dusting of chocolate.</p>
-                
-                <p><strong>Chocolate Lava Cake</strong> | $8.00</p>
-                <p>Served with vanilla ice cream.</p>
+                {documentToReactComponents(data.allContentfulDelMarMenuPage.nodes[0].dessertMenuItems.menuItems.json)}
             </div>
         </div>
     </section>
-)
+    )}
+    />
+);
 
 export default Desserts

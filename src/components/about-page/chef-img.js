@@ -5,17 +5,21 @@ import Img from "gatsby-image"
 const ChefImg = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "chef.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 500) {
-            ...GatsbyImageSharpFluid
+      allContentfulDelMarAboutPage{
+        nodes{
+          aboutSection2{
+            sectionImage{
+              fluid(maxWidth: 500){
+                ...GatsbyContentfulFluid
+              }
+            }
           }
         }
       }
     }
   `)
 
-  return <Img alt="chef image" fluid={data.placeholderImage.childImageSharp.fluid} />
+  return <Img alt="chef image" fluid={data.allContentfulDelMarAboutPage.nodes[0].aboutSection2.sectionImage.fluid} />
 }
 
 export default ChefImg
